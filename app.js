@@ -167,12 +167,13 @@ function searchCuisines(allDishes) {
             return false;
         }
     });
-    alert("Found all dishes matching the cuisine search term!  Check the console for full output")
+    alert(`Found all dishes matching the cuisine ${cuisine}!  Check the console for full output`)
     return results
 }
 
 function searchIngredients(allDishes) {
     alert("Searching for dishes by ingredient...")
+    // TODO #4: Gather user input for an ingredient to search for, then filter for all dishes that INCLUDE this ingredient in their ingredients array property
     let ingredient = customPrompt("Enter an ingredient to search for:\nOptions: tomato, chesse, corn, flour, sugar, beef, cabbage, chickpea, or parsley", ["tomato", "chesse", "corn", "flour", "sugar", "beef", "cabbage", "chickpea", "parsley"]);
     let results = allDishes.filter(function (el) {
         if (el.ingredients.includes(ingredient)) {
@@ -180,15 +181,18 @@ function searchIngredients(allDishes) {
         } else {
             return false;
         }
-    })
-    // TODO #4: Gather user input for an ingredient to search for, then filter for all dishes that INCLUDE this ingredient in their ingredients array property
-    alert("Found all dishes that contain the ingredient search term!  Check the console for full output")
+    });
+    alert(`Found all dishes that contain the ingredient ${ingredient}!  Check the console for full output`)
     return results
 }
 
 function generateCuisineDishName(allDishes) {
     alert("Combining cuisine and dish names...")
     // TODO #5: Apply the concatenatorFunction to each dish in allDishes, then log to the console the modified result
+    let results = allDishes.map(function (el) {
+        return `${el.cuisine} ${el.name}`;
+    });
+        console.log(results);
     alert("Successfully combined cuisine and dish names!  Check the console for full output.")
 }
 
