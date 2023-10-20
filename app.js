@@ -133,7 +133,7 @@ function calculateTotalServingCount(allDishes) {
 // <<<<<<<<<<<<<<<<< EXAMPLE FUNCTION <<<<<<<<<<<<<<<<<
 
 function findMexicanFood(allDishes) {
-    alert("Searching for Mexican dishes...")4
+    alert("Searching for Mexican dishes...")
     let results = allDishes.filter(function (el) {
         if (el.cuisine === "Mexican") {
             return true;
