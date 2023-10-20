@@ -120,16 +120,27 @@ let todaysSpecialDish = {
     ingredients: ["corn", "cheese"],
 }
 
+// <<<<<<<<<<<<<<<<< CALCULATE FUNCTION <<<<<<<<<<<<<<<<<<
+
+// Function to calculate and display the total serving count for all dishes using reduce
+function calculateTotalServingCount(allDishes) {
+    let totalServingCount = allDishes.reduce(function (accumulator, dish) {
+        return accumulator + dish.servings;
+    }, 0);
+    console.log(`Total serving count for all dishes: ${totalServingCount}`);
+}
+
 // <<<<<<<<<<<<<<<<< EXAMPLE FUNCTION <<<<<<<<<<<<<<<<<
 
 function findMexicanFood(allDishes) {
-    alert("Searching for Mexican dishes...")
+    alert("Searching for Mexican dishes...")4
     let results = allDishes.filter(function (el) {
         if (el.cuisine === "Mexican") {
             return true;
         } else {
             return false;
         }
+        
     });
     // TODO #1: Step through this function with the debugger to get a better understanding of the structure of this function
 
@@ -150,6 +161,7 @@ function findItalianFood(allDishes) {
         } else {
             return false;
         }
+        
     });
     alert("Found all Italian dishes!  Check the console for full output")
     return results
@@ -273,7 +285,8 @@ function runApp(allDishes, specialDish) {
     Press 5 to see a list of cuisines & dish names.
     Press 6 to send a marketing text message for Today's Special Dish.
     Press 7 to send a marketing email message for Today's Special Dish.
-    Enter "Exit" to quit the application.`, ["1", "2", "3", "4", "5", "6", "7", "Exit"])
+    Press 8 to calculate the total serving count for all dishes.
+    Enter "Exit" to quit the application.`, ["1", "2", "3", "4", "5", "6", "7", "8", "Exit"])
     switch (userChoice) {
         case "1":
             let mexicanDishes = findMexicanFood(allDishes)
@@ -304,6 +317,9 @@ function runApp(allDishes, specialDish) {
             // TODO #9: Call the appropriate function to generate the marketing email message.  
             // You will need to provide today's dish and the appropriate callback function as arguments!
             generateMarketingMessage(specialDish, emailMessage);
+            break
+        case "8":
+            calculateTotalServingCount(allDishes);
             break
         case "Exit":
             alert("Thank you for using the Recipe Searching Application!  Goodbye!")
